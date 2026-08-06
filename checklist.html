@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@HumanFirewallHQ // 15-Minute Tactical Security Checklist</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-color: #0a0a0f;
+      --card-bg: #111827;
+      --primary-accent: #00ff88;
+      --secondary-accent: #3b82f6;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 255, 136, 0.4);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.05);
+    }
+    header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--primary-accent);
+      background: rgba(0, 255, 136, 0.1);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(0, 255, 136, 0.3);
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .checklist-section {
+      margin-bottom: 2rem;
+    }
+    .checklist-section h2 {
+      font-size: 1.15rem;
+      color: var(--primary-accent);
+      margin-bottom: 1rem;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .checklist-item:hover {
+      border-color: var(--secondary-accent);
+    }
+    .checklist-item input[type="checkbox"] {
+      margin-top: 0.3rem;
+      accent-color: var(--primary-accent);
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .checklist-text h3 {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    .checklist-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--primary-accent);
+      color: #0a0a0f;
+      border: 1px solid var(--primary-accent);
+    }
+    .btn-primary:hover {
+      background: #00dd75;
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      border-color: var(--secondary-accent);
+      color: var(--secondary-accent);
+    }
+    @media (max-width: 640px) {
+      .container { padding: 1.5rem; }
+      .actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">[ TACTICAL PROTOCOL // FREE ASSET ]</span>
+      <h1>15-Minute Home & Office Security Checklist</h1>
+      <p class="subtitle">[PLACEHOLDER: A concise, zero-jargon defensive hardening checklist for real humans. Complete these 10 items to defend against 99% of opportunistic attacks.]</p>
+    </header>
+
+    <div class="checklist-section">
+      <h2>// 01. AUTHENTICATION & ACCESS CONTROL</h2>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>01. Implement Multi-Factor Authentication (MFA) Across All Critical Accounts</h3>
+          <p>[PLACEHOLDER: Switch from SMS codes to a hardware security key (YubiKey) or an authenticator app (Aegis, Ente, 2FAS) for email, banking, and primary cloud storage.]</p>
+        </div>
+      </label>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>02. Audit & Upgrade to Zero-Knowledge Password Architecture</h3>
+          <p>[PLACEHOLDER: Eliminate reused passwords using an audited zero-knowledge password manager (Bitwarden, 1Password). Generate 20+ character randomized passphrases.]</p>
+        </div>
+      </label>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>03. Establish an Emergency Recovery Key Vault</h3>
+          <p>[PLACEHOLDER: Print or securely store backup recovery codes for email and MFA in a physical fireproof safe or offline encrypted volume.]</p>
+        </div>
+      </label>
+    </div>
+
+    <div class="checklist-section">
+      <h2>// 02. NETWORK & DEVICE HARDENING</h2>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>04. Isolate Home Wi-Fi & Enable WPA3 / Guest IoT Segmentation</h3>
+          <p>[PLACEHOLDER: Separate smart TV, cameras, and IoT devices onto an isolated guest network. Disable UPnP and remote admin access on your router.]</p>
+        </div>
+      </label>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>05. Configure Encrypted DNS (DoH / DoT) & Ad/Malware Blocking</h3>
+          <p>[PLACEHOLDER: Deploy NextDNS, Quad9, or Cloudflare Gateway on router and endpoints to block phishing domains and malicious trackers at the DNS level.]</p>
+        </div>
+      </label>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>06. Enforce Full-Disk Encryption (BitLocker / FileVault / LUKS)</h3>
+          <p>[PLACEHOLDER: Verify that every portable laptop and mobile device requires a strong unlock passphrase with automatic full-disk encryption active.]</p>
+        </div>
+      </label>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>07. Set Strict Screen-Lock Timeout & Disable Lock-Screen Notifications</h3>
+          <p>[PLACEHOLDER: Configure a 3-minute automatic lock timeout and hide sensitive notification contents (MFA tokens, messages) on locked screens.]</p>
+        </div>
+      </label>
+    </div>
+
+    <div class="checklist-section">
+      <h2>// 03. AI SCAM & SOCIAL ENGINEERING RESILIENCE</h2>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>08. Establish a Family / Team "Safe Word" for AI Voice Scam Verification</h3>
+          <p>[PLACEHOLDER: Agree on a verbal passphrase with family members and financial executives to instantly verify identity during suspicious urgency calls.]</p>
+        </div>
+      </label>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>09. Harden Social Media Privacy Settings & Remove Public Data Brokers</h3>
+          <p>[PLACEHOLDER: Limit visibility of birthdates, relatives, and phone numbers on X, LinkedIn, and Instagram to reduce targeted spear-phishing intel.]</p>
+        </div>
+      </label>
+      <label class="checklist-item">
+        <input type="checkbox">
+        <div class="checklist-text">
+          <h3>10. Enforce "Out-of-Band Verification" for Wire Transfers & Urgent Requests</h3>
+          <p>[PLACEHOLDER: Never approve a payment or credential reset from an email or Slack message without calling a pre-verified phone number.]</p>
+        </div>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="window.print()">[ PRINT / SAVE PDF ]</button>
+      <a href="index.html" class="btn btn-secondary">&larr; BACK TO @HUMANFIREWALLHQ</a>
+    </div>
+  </div>
+</body>
+</html>

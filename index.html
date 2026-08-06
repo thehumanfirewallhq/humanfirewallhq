@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- ======================================================================
+       @HUMANFIREWALLHQ // OFFICIAL MARKETING PLATFORM
+       BUILD: OPERATOR-GRADE PRODUCTION BUILD (REV 2026.08.06)
+       SECURITY ARCHITECTURE: ZERO COOKIES | NO TRACKING | STRICT CSP
+       ====================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@HumanFirewallHQ // Cybersecurity Knowledge for Real Humans</title>
+
+  <!-- Security & Privacy Control Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://humanfirewallhq.substack.com; upgrade-insecure-requests;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- SEO & Social Preview Meta Tags -->
+  <meta name="description" content="Cybersecurity knowledge for real humans. Dark, cinematic, operator-grade training designed for resilience against AI scams and digital threats.">
+  <meta name="keywords" content="cybersecurity, human firewall, MFA, AI scam defense, security training, Substack, Patreon">
+  <meta name="author" content="@HumanFirewallHQ">
+  <meta name="robots" content="index, follow">
+
+  <!-- OpenGraph / Social Media Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="@HumanFirewallHQ // Cybersecurity Knowledge for Real Humans">
+  <meta property="og:description" content="No jargon. Zero FUD. Actionable cybersecurity protocols for professionals, parents, freelancers, journalists, and SMBs.">
+  <meta property="og:url" content="https://linktr.ee/HumanFirewall">
+  <meta property="og:site_name" content="@HumanFirewallHQ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@HumanFirewallHQ">
+  <meta name="twitter:title" content="@HumanFirewallHQ // Cybersecurity for Real Humans">
+  <meta name="twitter:description" content="Actionable cybersecurity & AI scam resilience. Masterclasses, checklists & weekly intel dispatches.">
+
+  <!-- Favicon & Stylesheets -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       CEO & COPYWRITER REVIEW BUILD BANNER
+       ====================================================================== -->
+  <aside class="ceo-review-banner" id="ceo-review-banner" role="complementary" aria-label="Review Notification">
+    <div>
+      <span class="tag">CEO REVIEW BUILD</span>
+      <span>All [PLACEHOLDER: ...] text strings &amp; links ([PATREON_LINK], [SUBSTACK_LINK]) are interactive &amp; ready for Copywriter fill.</span>
+    </div>
+    <button class="dismiss-btn" id="dismiss-ceo-banner" aria-label="Dismiss banner">[ DISMISS ]</button>
+  </aside>
+
+  <!-- ======================================================================
+       TOP NAVIGATION BAR
+       ====================================================================== -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="@HumanFirewallHQ Home">
+        <span class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 6V12C4 17.5 7.5 22 12 24C16.5 22 20 17.5 20 12V6L12 2Z" stroke="#00FF88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 8V16M8 12H16" stroke="#00FF88" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div>
+          <span style="display: flex; align-items: center;">
+            @HumanFirewallHQ <span class="brand-status-dot" title="DEFENSE CONSTRUCT OPERATIONAL"></span>
+          </span>
+          <span class="brand-tag">// SECURITY FOR REAL HUMANS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="#products" class="nav-link">PRODUCTS</a></li>
+          <li><a href="#about" class="nav-link">ABOUT</a></li>
+          <li><a href="#resources" class="nav-link">FREE RESOURCES</a></li>
+          <li><a href="#newsletter" class="nav-link">INTEL DISPATCH</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="[PATREON_LINK]" class="btn btn-primary btn-sm" data-placeholder="[PATREON_LINK]">
+          <span>PATREON ACCESS</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation drawer" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MOBILE MENU DRAWER
+       ====================================================================== -->
+  <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-drawer-list">
+      <li><a href="#products" class="mobile-drawer-link">// 01. PRODUCTS &amp; MASTERCLASSES</a></li>
+      <li><a href="#about" class="mobile-drawer-link">// 02. ABOUT @HUMANFIREWALLHQ</a></li>
+      <li><a href="#resources" class="mobile-drawer-link">// 03. FREE SECURITY RESOURCES</a></li>
+      <li><a href="#newsletter" class="mobile-drawer-link">// 04. SUBSTACK INTEL DISPATCH</a></li>
+      <li>
+        <a href="[PATREON_LINK]" class="btn btn-primary" style="margin-top: 1rem; width: 100%;" data-placeholder="[PATREON_LINK]">
+          PATREON ACCESS // [PATREON_LINK]
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ======================================================================
+       OPERATOR TELEMETRY STRIP
+       ====================================================================== -->
+  <div class="telemetry-strip" role="region" aria-label="Operator Status Telemetry">
+    <div class="container telemetry-inner">
+      <div class="telemetry-item">
+        <span>STATUS:</span> <span class="accent">OPERATIONAL // CONSTRUCT 4.2</span>
+      </div>
+      <div class="telemetry-item">
+        <span>THREAT LEVEL:</span> <span class="accent">MODERATE-HIGH (AI SCAMS ACTIVE)</span>
+      </div>
+      <div class="telemetry-item">
+        <span>LOCALE:</span> <span class="accent">INTERNATIONAL (EN-GLOBAL)</span>
+      </div>
+      <div class="telemetry-item">
+        <span>TRACKING:</span> <span class="accent">0 COOKIES DETECTED // AUDIT CLEAN</span>
+      </div>
+    </div>
+  </div>
+
+  <main id="hero">
+    <!-- ====================================================================
+         HERO SECTION
+         ==================================================================== -->
+    <section class="hero-section" aria-label="Hero Introduction">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="operator-badge">
+            // SYS_DEFENSE_PROTOCOL // ENCRYPTED &amp; VERIFIED
+          </div>
+
+          <h1 class="hero-title">
+            CYBERSECURITY KNOWLEDGE FOR <span class="text-gradient">REAL HUMANS</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            [PLACEHOLDER: High-impact hero copy explaining how @HumanFirewallHQ translates elite nation-state and enterprise security architecture into zero-jargon defensive habits for everyday professionals, parents, and businesses.]
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#products" class="btn btn-primary">
+              <span>EXPLORE MASTERCLASSES</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#resources" class="btn btn-outline">
+              <span>FREE 15-MIN CHECKLIST</span>
+            </a>
+            <a href="[SUBSTACK_LINK]" class="btn btn-secondary" data-placeholder="[SUBSTACK_LINK]">
+              <span>READ ON SUBSTACK</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics-bar">
+            <div class="metric-card">
+              <span class="metric-value text-green">100%</span>
+              <span class="metric-label">Zero FUD Policy</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value text-blue">5+</span>
+              <span class="metric-label">Target Audiences</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">0</span>
+              <span class="metric-label">Tracking Cookies</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-terminal" aria-label="Interactive Terminal Graphic">
+          <div class="terminal-header">
+            <div class="terminal-controls">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <div class="terminal-title">operator_console@humanfirewall:~</div>
+            <div class="terminal-title" style="color: var(--accent-green)">SSH: SECURED</div>
+          </div>
+          <div class="terminal-body">
+            <p><span class="term-prompt">&gt;</span> <span class="term-comment"># Initializing HumanFirewall Defense Matrix v2.6</span></p>
+            <p><span class="term-prompt">&gt;</span> ./scan_threat_landscape --target=everyday_humans</p>
+            <p class="term-output">[OK] Scanning AI voice clones, phishing campaigns &amp; IoT vulnerabilities...</p>
+            <p class="term-output">[OK] Detected primary attack vector: Social Engineering &amp; Weak Authentication.</p>
+            <p><span class="term-prompt">&gt;</span> ./deploy_countermeasures --mode=zero_jargon</p>
+            <p class="term-output">[!] Loading Masterclass Lite (12€)... <span class="term-highlight">READY</span></p>
+            <p class="term-output">[!] Loading Enterprise Armor (36€)... <span class="term-highlight">READY</span></p>
+            <p class="term-output">[!] Loading Monthly Intel Feed (6€/m)... <span class="term-highlight">READY</span></p>
+            <p><span class="term-prompt">&gt;</span> <span id="term-animated-line">AI_SCAM_DEFENSE_PROTOCOL === ACTIVE</span><span class="cursor-blink"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MISSION STATEMENT & VALUE PROPOSITION
+         ==================================================================== -->
+    <section class="section-wrapper alt-bg" aria-label="Mission &amp; Value Proposition">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">// 00. OPERATIONAL DIRECTIVE</span>
+          <h2 class="section-title">WHY @HUMANFIREWALLHQ EXISTS</h2>
+          <p class="section-description">
+            [PLACEHOLDER: Copywriter overview describing why traditional corporate cybersecurity slide decks fail real human beings, and how we empower you to protect what matters most.]
+          </p>
+        </div>
+
+        <div class="mission-grid">
+          <article class="mission-card">
+            <div class="mission-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="mission-card-title">FOR EVERYDAY HUMANS</h3>
+            <p class="mission-card-desc">
+              [PLACEHOLDER: Cybersecurity should never require a computer science degree or enterprise IT budget. We break down complex threats into intuitive, daily habits for parents, freelancers, and small teams.]
+            </p>
+          </article>
+
+          <article class="mission-card">
+            <div class="mission-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="mission-card-title">ZERO FUD. 100% ACTION.</h3>
+            <p class="mission-card-desc">
+              [PLACEHOLDER: We reject Fear, Uncertainty, and Doubt (FUD). Instead of panic headlines, we deliver clear, tested defensive protocols that make you harder to hack within 15 minutes.]
+            </p>
+          </article>
+
+          <article class="mission-card">
+            <div class="mission-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                <path d="M12 2a10 10 0 0 1 10 10"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="mission-card-title">AI &amp; SCAM RESILIENCE</h3>
+            <p class="mission-card-desc">
+              [PLACEHOLDER: Generative AI, voice clones, and automated spear-phishing have changed the threat landscape. Our training focuses heavily on identifying and neutralizing AI-enabled deception.]
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PRODUCT BROWSER SECTION (/products)
+         ==================================================================== -->
+    <section class="section-wrapper" id="products" aria-label="Product Browser">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">// 01. DEFENSE CATALOG // MASTERCLASSES &amp; INTEL</span>
+          <h2 class="section-title">SELECT YOUR DEFENSE TIER</h2>
+          <p class="section-description">
+            [PLACEHOLDER: Filter by your target audience below. All product enrollments and recurring intel feeds are securely hosted and verified via Patreon (no external checkout cookies).]
+          </p>
+        </div>
+
+        <!-- Target Audience Filter Buttons -->
+        <div class="filter-bar" role="toolbar" aria-label="Target Audience Filter">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">[ ALL TIERS ]</button>
+          <button class="filter-btn" data-filter="Professionals" aria-pressed="false">[ PROFESSIONALS ]</button>
+          <button class="filter-btn" data-filter="Parents" aria-pressed="false">[ PARENTS ]</button>
+          <button class="filter-btn" data-filter="Freelancers" aria-pressed="false">[ FREELANCERS ]</button>
+          <button class="filter-btn" data-filter="Journalists" aria-pressed="false">[ JOURNALISTS ]</button>
+          <button class="filter-btn" data-filter="SMBs" aria-pressed="false">[ SMBs / KMU ]</button>
+        </div>
+
+        <div class="products-grid">
+          <!-- CARD 1: MASTERCLASS LITE -->
+          <article class="product-card" data-target="Professionals, Parents, Freelancers">
+            <div>
+              <div class="product-tier-name">// ESSENTIAL HARDENING</div>
+              <h3 class="product-title">MASTERCLASS LITE</h3>
+
+              <div class="product-price-box">
+                <span class="product-price">12€</span>
+                <span class="product-period">/ one-time access</span>
+              </div>
+
+              <div class="product-target-tags">
+                <span class="target-tag">#Professionals</span>
+                <span class="target-tag">#Parents</span>
+                <span class="target-tag">#Freelancers</span>
+              </div>
+
+              <p class="product-description">
+                [PLACEHOLDER: Core cybersecurity protocol for everyday humans. Learn how to secure your accounts, home Wi-Fi, passwords, and personal devices in one actionable 90-minute course.]
+              </p>
+
+              <ul class="product-features-list">
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Complete 90-minute video masterclass]</span>
+                </li>
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Hardware key &amp; zero-knowledge vault guide]</span>
+                </li>
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Instant lifetime Patreon access]</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-card-footer">
+              <a href="[PATREON_LINK]" class="btn btn-outline" data-placeholder="[PATREON_LINK]">
+                <span>ENROLL VIA PATREON // 12€</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- CARD 2: ENTERPRISE MASTERCLASS (FEATURED) -->
+          <article class="product-card featured" data-target="Professionals, Freelancers, Journalists, SMBs">
+            <span class="featured-badge">MOST POPULAR // OPERATOR GRADE</span>
+            <div>
+              <div class="product-tier-name">// ADVANCED ARMOR</div>
+              <h3 class="product-title">ENTERPRISE MASTERCLASS</h3>
+
+              <div class="product-price-box">
+                <span class="product-price">36€</span>
+                <span class="product-period">/ one-time access</span>
+              </div>
+
+              <div class="product-target-tags">
+                <span class="target-tag">#Professionals</span>
+                <span class="target-tag">#SMBs</span>
+                <span class="target-tag">#Journalists</span>
+                <span class="target-tag">#Freelancers</span>
+              </div>
+
+              <p class="product-description">
+                [PLACEHOLDER: Operator-grade defense for small teams, businesses, journalists, and high-risk individuals. Includes incident response templates, AI scam defense drills, and team training modules.]
+              </p>
+
+              <ul class="product-features-list">
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Complete SMB &amp; Team Hardening Curriculum]</span>
+                </li>
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: AI Voice-Clone &amp; Deepfake verification drills]</span>
+                </li>
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Vendor security &amp; client data protection templates]</span>
+                </li>
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Priority Q&amp;A in verified Patreon community]</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-card-footer">
+              <a href="[PATREON_LINK]" class="btn btn-primary" data-placeholder="[PATREON_LINK]">
+                <span>ENROLL VIA PATREON // 36€</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- CARD 3: MONTHLY RECAP -->
+          <article class="product-card" data-target="Professionals, Parents, Freelancers, Journalists, SMBs">
+            <div>
+              <div class="product-tier-name">// ONGOING THREAT INTEL</div>
+              <h3 class="product-title">MONTHLY RECAP</h3>
+
+              <div class="product-price-box">
+                <span class="product-price">6€</span>
+                <span class="product-period">/ month (cancel anytime)</span>
+              </div>
+
+              <div class="product-target-tags">
+                <span class="target-tag">#Professionals</span>
+                <span class="target-tag">#Parents</span>
+                <span class="target-tag">#Freelancers</span>
+                <span class="target-tag">#Journalists</span>
+                <span class="target-tag">#SMBs</span>
+              </div>
+
+              <p class="product-description">
+                [PLACEHOLDER: Monthly executive briefing breaking down the latest real-world cyber attacks, zero-day alerts, and AI scams into plain English so your defenses stay updated.]
+              </p>
+
+              <ul class="product-features-list">
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Curated monthly video &amp; written digest]</span>
+                </li>
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Instant zero-day vulnerability alerts]</span>
+                </li>
+                <li class="product-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>[PLACEHOLDER: Patreon community &amp; topic voting]</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-card-footer">
+              <a href="[PATREON_LINK]" class="btn btn-secondary" data-placeholder="[PATREON_LINK]">
+                <span>SUBSCRIBE VIA PATREON // 6€/M</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         ABOUT / MISSION & STORY SECTION (/about)
+         ==================================================================== -->
+    <section class="section-wrapper alt-bg" id="about" aria-label="About HumanFirewallHQ">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">// 02. DECLASSIFIED // MISSION &amp; STORY</span>
+          <h2 class="section-title">WHO IS BEHIND @HUMANFIREWALLHQ?</h2>
+          <p class="section-description">
+            [PLACEHOLDER: International cybersecurity education for real humans. Everything published in English, accessible across all your favorite platforms.]
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Operator Profile Console (Left) -->
+          <div class="operator-profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="profile-meta">
+                <h3>@HumanFirewallHQ</h3>
+                <div class="status">[ SYSTEM OPERATOR // VERIFIED ]</div>
+              </div>
+            </div>
+
+            <table class="profile-data-table">
+              <tbody>
+                <tr>
+                  <td>MISSION:</td>
+                  <td>Cybersecurity Knowledge for Real Humans</td>
+                </tr>
+                <tr>
+                  <td>LANGUAGE:</td>
+                  <td>International (English First)</td>
+                </tr>
+                <tr>
+                  <td>CORE PHILOSOPHY:</td>
+                  <td>Zero FUD // Actionable Habit Design</td>
+                </tr>
+                <tr>
+                  <td>SECURITY POSTURE:</td>
+                  <td>Strict CSP // Zero Tracking Cookies</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div style="font-family: monospace; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+              // VERIFIED PLATFORM CHANNELS
+            </div>
+
+            <div class="platform-links-grid">
+              <a href="[X_LINK]" class="platform-link-chip" data-placeholder="[X_LINK]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                <span>X (@HumanFirewallHQ)</span>
+              </a>
+
+              <a href="[SUBSTACK_LINK]" class="platform-link-chip" data-placeholder="[SUBSTACK_LINK]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                </svg>
+                <span>Substack Blog</span>
+              </a>
+
+              <a href="[PATREON_LINK]" class="platform-link-chip" data-placeholder="[PATREON_LINK]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.386 0.524c-4.764 0-8.64 3.876-8.64 8.64 0 4.75 3.876 8.613 8.64 8.613 4.75 0 8.614-3.864 8.614-8.613C24 4.4 20.136 0.524 15.386 0.524M0.003 23.537h4.22V0.524H0.003"/>
+                </svg>
+                <span>Patreon Masterclasses</span>
+              </a>
+
+              <a href="[KOFI_LINK]" class="platform-link-chip" data-placeholder="[KOFI_LINK]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                <span>Ko-Fi Donations</span>
+              </a>
+
+              <a href="[YOUTUBE_LINK]" class="platform-link-chip" style="grid-column: span 2;" data-placeholder="[YOUTUBE_LINK]">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+                <span>YouTube Channel (NEW // VIDEO INTEL)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Narrative Column (Right) -->
+          <div class="about-narrative">
+            <div>
+              <h3>[PLACEHOLDER: THE ORIGIN OF @HUMANFIREWALLHQ]</h3>
+              <p>
+                [PLACEHOLDER: Copywriter story on how we witnessed countless small businesses, parents, and freelancers fall victim to preventable cyber attacks simply because corporate compliance training was boring, elitist, and full of technical jargon.]
+              </p>
+            </div>
+
+            <blockquote class="about-quote">
+              "[PLACEHOLDER: Technology alone cannot protect you. Human awareness and calm, systematic habits are your primary layer of defense.]"
+            </blockquote>
+
+            <div>
+              <h3>[PLACEHOLDER: OUR OPERATOR COMMITMENT]</h3>
+              <p>
+                [PLACEHOLDER: Explanation of our international English-first focus, our zero-cookie / zero-tracking web philosophy, and why every masterclass we build is tested against real-world AI voice clones and social engineering tactics.]
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FREE RESOURCES SECTION (/free-resources)
+         ==================================================================== -->
+    <section class="section-wrapper" id="resources" aria-label="Free Resources">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">// 03. TACTICAL DOWNFLOW // FREE RESOURCES</span>
+          <h2 class="section-title">IMMEDIATE DEFENSE UPGRADES // 0€</h2>
+          <p class="section-description">
+            [PLACEHOLDER: We believe foundational cybersecurity should be free and accessible to every human on the planet. Download our checklist or join our Substack library.]
+          </p>
+        </div>
+
+        <div class="resources-grid">
+          <!-- CARD A: 15-MINUTE CHECKLIST -->
+          <article class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-badge">[ FREE PROTOCOL ]</span>
+                <span style="font-family: monospace; font-size: 0.75rem; color: var(--accent-green);">10-POINT CHECKLIST</span>
+              </div>
+
+              <h3 class="resource-title">15-MINUTE HOME &amp; OFFICE SECURITY CHECKLIST</h3>
+
+              <p class="resource-desc">
+                [PLACEHOLDER: 10 step-by-step actions you can take today to harden your email, passwords, Wi-Fi, and mobile devices against 99% of opportunistic cyber attacks.]
+              </p>
+
+              <ul class="resource-list">
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> 01. Hardware Key / Authenticator App MFA Audit
+                </li>
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> 02. Zero-Knowledge Password Vault Setup
+                </li>
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> 03. Encrypted DNS &amp; Router Hardening
+                </li>
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> 04. AI Voice Scam Family Verification Safe-Word
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="checklist.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+                <span>OPEN / DOWNLOAD CHECKLIST [HTML/PDF]</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- CARD B: SUBSTACK INTEL LIBRARY -->
+          <article class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-badge">[ FREE ARCHIVES ]</span>
+                <span style="font-family: monospace; font-size: 0.75rem; color: var(--accent-blue);">ENCRYPTED DISPATCH</span>
+              </div>
+
+              <h3 class="resource-title">SUBSTACK INTEL LIBRARY</h3>
+
+              <p class="resource-desc">
+                [PLACEHOLDER: Free weekly cybersecurity dispatches, AI scam breakdowns, and privacy tutorials delivered directly to your inbox without paywalls or corporate fluff.]
+              </p>
+
+              <ul class="resource-list">
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> Weekly Zero-Day &amp; Scam Alerts in Plain English
+                </li>
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> Practical Hardening Guides for Real Humans
+                </li>
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> Full Searchable Historical Blog Archives
+                </li>
+                <li class="resource-list-item">
+                  <span class="check">[x]</span> Zero Ads // Zero Cookie Tracking
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="[SUBSTACK_LINK]" class="btn btn-secondary" style="width: 100%;" data-placeholder="[SUBSTACK_LINK]">
+                <span>BROWSE FREE ARCHIVES ON SUBSTACK</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         NEWSLETTER CTA / SUBSTACK DISPATCH SECTION
+         ==================================================================== -->
+    <section class="section-wrapper" id="newsletter" aria-label="Substack Newsletter Subscription">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-content">
+            <span class="section-eyebrow" style="margin-bottom: 0.75rem;">// 04. DIRECT ENCRYPTION // WEEKLY INTEL DISPATCH</span>
+            <h2 class="newsletter-title">STAY ONE STEP AHEAD OF AI THREATS.</h2>
+            <p class="newsletter-desc">
+              [PLACEHOLDER: Join our encrypted Substack community. Zero FUD, zero spam, pure operator intelligence delivered every week to keep your family and business resilient.]
+            </p>
+
+            <form class="newsletter-form" id="newsletter-form" novalidate>
+              <input
+                type="email"
+                id="newsletter-email-input"
+                class="newsletter-input"
+                placeholder="enter_your_email@domain.com"
+                required
+                aria-label="Email address for Substack newsletter"
+              >
+              <button type="submit" class="btn btn-primary">
+                <span>SUBSCRIBE ON SUBSTACK</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
+
+            <div id="newsletter-status-msg" style="font-family: monospace; font-size: 0.8rem; margin-bottom: 1rem; min-height: 1.2rem;"></div>
+
+            <div class="newsletter-privacy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>[ 100% PRIVACY GUARANTEE // NO COOKIES // NO PIXEL TRACKING // UNSUBSCRIBE ANYTIME ]</span>
+            </div>
+
+            <div style="margin-top: 1.25rem;">
+              <a href="[SUBSTACK_LINK]" style="color: var(--accent-blue); font-size: 0.85rem; font-family: monospace; text-decoration: underline;" data-placeholder="[SUBSTACK_LINK]">
+                Or visit https://humanfirewallhq.substack.com directly &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo" aria-label="@HumanFirewallHQ Home">
+            <span class="brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L4 6V12C4 17.5 7.5 22 12 24C16.5 22 20 17.5 20 12V6L12 2Z" stroke="#00FF88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 8V16M8 12H16" stroke="#00FF88" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>@HumanFirewallHQ</span>
+          </a>
+          <p>
+            [PLACEHOLDER: Cybersecurity knowledge for real humans. Dark, cinematic, operator-grade education designed for international resilience.]
+          </p>
+          <div style="margin-top: 1rem; font-family: monospace; font-size: 0.75rem; color: var(--accent-green);">
+            // SECURE BUILD // 0 COOKIES
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <h3 class="footer-column-title">// NAVIGATION</h3>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">Home // Overview</a></li>
+            <li><a href="#products" class="footer-link">Masterclasses (Patreon)</a></li>
+            <li><a href="#about" class="footer-link">About // Mission</a></li>
+            <li><a href="#resources" class="footer-link">Free Security Checklist</a></li>
+            <li><a href="#newsletter" class="footer-link">Substack Intel Dispatch</a></li>
+          </ul>
+        </div>
+
+        <!-- Platforms -->
+        <div>
+          <h3 class="footer-column-title">// PLATFORMS</h3>
+          <ul class="footer-links">
+            <li><a href="[X_LINK]" class="footer-link" data-placeholder="[X_LINK]">X (@HumanFirewallHQ)</a></li>
+            <li><a href="[SUBSTACK_LINK]" class="footer-link" data-placeholder="[SUBSTACK_LINK]">Substack (Intel Blog)</a></li>
+            <li><a href="[PATREON_LINK]" class="footer-link" data-placeholder="[PATREON_LINK]">Patreon (Masterclasses)</a></li>
+            <li><a href="[KOFI_LINK]" class="footer-link" data-placeholder="[KOFI_LINK]">Ko-Fi (Donations / Support)</a></li>
+            <li><a href="[YOUTUBE_LINK]" class="footer-link" data-placeholder="[YOUTUBE_LINK]">YouTube (New // Videos)</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Audit -->
+        <div>
+          <h3 class="footer-column-title">// SECURITY CONTROLS</h3>
+          <ul class="footer-links">
+            <li><span class="text-muted font-mono" style="font-size:0.8rem;">CSP: STRICT / ENFORCED</span></li>
+            <li><span class="text-muted font-mono" style="font-size:0.8rem;">COOKIES: 0 TRACKERS</span></li>
+            <li><span class="text-muted font-mono" style="font-size:0.8rem;">XSS PROTECTION: ACTIVE</span></li>
+            <li><span class="text-muted font-mono" style="font-size:0.8rem;">FRAMEWORK: NONE (VANILLA)</span></li>
+            <li><span class="text-muted font-mono" style="font-size:0.8rem;">CDN: GOOGLE FONTS ONLY</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 @HumanFirewallHQ. All rights reserved. // International (EN).
+        </div>
+        <div class="footer-security-badges">
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            ZERO COOKIES
+          </span>
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            CSP SECURED
+          </span>
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            NO ANALYTICS TRACKING
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       OPERATOR PREVIEW MODAL / TOAST (INTERCEPTS PLACEHOLDER LINKS FOR CEO REVIEW)
+       ====================================================================== -->
+  <div class="operator-modal-backdrop" id="operator-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="operator-modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-title">// OPERATOR LINK PLACEHOLDER</span>
+        <button class="modal-close-btn" id="close-modal-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-family: monospace; font-size: 0.82rem; color: var(--accent-green); margin-bottom: 0.5rem;">
+          [ SYSTEM NOTICE // COPYWRITER REVIEW MODE ]
+        </p>
+        <p id="modal-desc-text">
+          This CTA button is marked for copywriter review and Patreon/Substack campaign integration.
+        </p>
+        <div class="modal-code-box" id="modal-target-text">
+          https://linktr.ee/HumanFirewall
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline btn-sm" id="dismiss-modal-btn">[ CLOSE ]</button>
+        <button class="btn btn-primary btn-sm" id="visit-real-url-btn">OPEN VERIFIED PLATFORM &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

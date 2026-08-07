@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">The keyv npm worm</title>
+  <desc id="desc">A simple editorial illustration of linked package nodes with one compromised node highlighted.</desc>
+  <rect width="1200" height="675" fill="#101820"/>
+  <path d="M0 520H1200M0 155H1200M180 0v675M1020 0v675" stroke="#244235" stroke-width="2" opacity=".7"/>
+  <g fill="none" stroke="#73d6ad" stroke-width="5" opacity=".8">
+    <path d="M250 355 475 235 710 340 930 210"/>
+    <path d="M250 355 470 495 710 340 890 490"/>
+  </g>
+  <g fill="#202b38" stroke="#73d6ad" stroke-width="5">
+    <circle cx="250" cy="355" r="42"/>
+    <circle cx="475" cy="235" r="42"/>
+    <circle cx="710" cy="340" r="42"/>
+    <circle cx="930" cy="210" r="42"/>
+    <circle cx="470" cy="495" r="42"/>
+    <circle cx="890" cy="490" r="42"/>
+  </g>
+  <circle cx="710" cy="340" r="29" fill="#d67b55" stroke="#ffd2b8" stroke-width="4"/>
+  <g fill="#dcebe4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text x="72" y="90" font-size="22" letter-spacing="5" fill="#73d6ad">FIELD NOTE / SUPPLY CHAIN</text>
+    <text x="72" y="590" font-size="50" font-weight="700">THE KEYV WORM</text>
+    <text x="75" y="630" font-size="20" letter-spacing="3" fill="#a9bdb4">TRUST MOVES THROUGH THE DEPENDENCY TREE</text>
+  </g>
+  <text x="690" y="348" fill="#101820" font-size="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" font-weight="700">!</text>
+</svg>

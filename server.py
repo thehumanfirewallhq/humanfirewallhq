@@ -42,6 +42,7 @@ PUBLIC_ARTICLE_IMAGES = {
     "03-deepseek-telegram-cve-table.png", "04-teams-ransomware-killchain.png",
     "05-us-water-hack-timeline.png", "07-macsync-claude-guide-killchain.png",
     "08-keyv-npm-worm-timeline.png", "08-keyv-npm-worm-hero.png",
+    "09-blackhat-ai-agent-collective-hero.png",
     "01-phantom-squatting-cover.jpg", "02-copilot-word-worm-cover.jpg",
     "03-deepseek-telegram-cover.jpg", "04-teams-ransomware-cover.jpg",
     "05-us-water-hack-cover.jpg", "07-macsync-cover.jpg",

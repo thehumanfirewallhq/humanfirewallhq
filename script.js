@@ -558,18 +558,10 @@
         return article && typeof article.id === 'string' && typeof article.title === 'string' && typeof article.bodyHtml === 'string';
       });
     };
-    const externalArticleUrl = function (value) {
-      try {
-        const parsed = new URL(String(value || ''));
-        return parsed.protocol === 'https:' && parsed.hostname === 'humanfirewallhq.substack.com' ? parsed.href : '';
-      } catch (error) {
-        return '';
-      }
-    };
     const sanitizeArticleHtml = function (source) {
       const parsed = new DOMParser().parseFromString(String(source || ''), 'text/html');
       const allowed = new Set(['H2', 'P', 'UL', 'OL', 'LI', 'BLOCKQUOTE', 'STRONG', 'EM', 'CODE', 'PRE', 'FIGURE', 'IMG', 'FIGCAPTION', 'A']);
-      const attributes = { H2: new Set(['id']), A: new Set(['href', 'target', 'rel']), IMG: new Set(['src', 'alt', 'width', 'height', 'loading']) };
+      const attributes = { FIGURE: new Set(['class']), H2: new Set(['id']), A: new Set(['href', 'target', 'rel']), IMG: new Set(['src', 'alt', 'width', 'height', 'loading']) };
       Array.from(parsed.body.querySelectorAll('*')).forEach(function (element) {
         if (!allowed.has(element.tagName)) { element.remove(); return; }
         Array.from(element.attributes).forEach(function (attribute) {
@@ -595,14 +587,10 @@
       return parsed.body.innerHTML;
     };
     const articleCard = function (article) {
-      const originalUrl = externalArticleUrl(article.sourceUrl);
-      const original = originalUrl
-        ? '<a class="btn btn-outline" href="' + escapeText(originalUrl) + '" target="_blank" rel="noopener noreferrer">Original</a>'
-        : '<span class="article-origin-note">Published here first</span>';
       const image = articleAsset(article.cardImage);
       return '<article class="blog-card archive-card" data-article-id="' + escapeText(article.id) + '">' +
         (image ? '<img class="blog-card-img" src="' + escapeText(image) + '" alt="' + escapeText(article.title) + '" width="' + escapeText(article.imageWidth || 1280) + '" height="' + escapeText(article.imageHeight || 720) + '" loading="lazy">' : '') +
-        '<div class="blog-card-body"><span class="blog-date">' + escapeText(article.date) + '</span><h2 class="blog-title">' + escapeText(article.title) + '</h2><p class="blog-excerpt">' + escapeText(article.subtitle || article.summary) + '</p><div class="archive-card-actions"><a class="blog-read-btn" href="article.html?id=' + encodeURIComponent(article.id) + '">Read full article</a>' + original + '</div></div></article>';
+        '<div class="blog-card-body"><span class="blog-date">' + escapeText(article.date) + '</span><h2 class="blog-title">' + escapeText(article.title) + '</h2><p class="blog-excerpt">' + escapeText(article.subtitle || article.summary) + '</p><div class="archive-card-actions"><a class="blog-read-btn" href="article.html?id=' + encodeURIComponent(article.id) + '">Read full article</a></div></div></article>';
     };
 
     fetch('articles.json', { cache: 'no-store' })
@@ -627,14 +615,6 @@
       const asset = String(value || '');
       return /^images\/articles\/[a-z0-9._-]+\.(?:svg|png|jpe?g|webp)$/i.test(asset) ? asset : '';
     };
-    const externalArticleUrl = function (value) {
-      try {
-        const parsed = new URL(String(value || ''));
-        return parsed.protocol === 'https:' && parsed.hostname === 'humanfirewallhq.substack.com' ? parsed.href : '';
-      } catch (error) {
-        return '';
-      }
-    };
     const sectionId = function (value) {
       const normalized = String(value || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
       return normalized ? 'reader-' + normalized : '';
@@ -642,7 +622,7 @@
     const sanitizeArticleHtml = function (source) {
       const parsed = new DOMParser().parseFromString(String(source || ''), 'text/html');
       const allowed = new Set(['H2', 'P', 'UL', 'OL', 'LI', 'BLOCKQUOTE', 'STRONG', 'EM', 'CODE', 'PRE', 'FIGURE', 'IMG', 'FIGCAPTION', 'A']);
-      const attributes = { H2: new Set(['id']), A: new Set(['href', 'target', 'rel']), IMG: new Set(['src', 'alt', 'width', 'height', 'loading']) };
+      const attributes = { FIGURE: new Set(['class']), H2: new Set(['id']), A: new Set(['href', 'target', 'rel']), IMG: new Set(['src', 'alt', 'width', 'height', 'loading']) };
       Array.from(parsed.body.querySelectorAll('*')).forEach(function (element) {
         if (!allowed.has(element.tagName)) { element.remove(); return; }
         Array.from(element.attributes).forEach(function (attribute) {
@@ -684,7 +664,6 @@
         if (!article) { renderError('Story not found', 'That article is not in the local archive.'); return; }
 
         const hero = articleAsset(article.cardImage);
-        const originalUrl = externalArticleUrl(article.sourceUrl);
         const toc = Array.isArray(article.toc) ? article.toc.map(function (entry) {
           const id = sectionId(entry && entry.id);
           return id && entry && typeof entry.title === 'string' ? { id: id, title: entry.title } : null;
@@ -692,7 +671,8 @@
         const tocMarkup = toc.length
           ? '<nav class="article-page-toc" aria-label="Contents"><div class="article-page-toc-label">Contents</div><ol>' + toc.map(function (entry) { return '<li><a href="#' + escapeText(entry.id) + '">' + escapeText(entry.title) + '</a></li>'; }).join('') + '</ol></nav>'
           : '';
-        shell.innerHTML = '<div class="article-page-top"><a class="back-link" href="blog.html">← Back to stories</a><span class="article-page-date">' + escapeText(article.date) + '</span></div><header class="article-page-header"><span class="section-eyebrow">HumanFirewall investigation</span><h1 class="article-page-title">' + escapeText(article.title) + '</h1><p class="article-page-subtitle">' + escapeText(article.subtitle || article.summary) + '</p>' + (hero ? '<img class="article-page-hero" src="' + escapeText(hero) + '" alt="' + escapeText(article.title) + '" width="' + escapeText(article.imageWidth || 1280) + '" height="' + escapeText(article.imageHeight || 720) + '">' : '') + '</header>' + tocMarkup + '<div class="article-page-body article-body">' + sanitizeArticleHtml(article.bodyHtml || '<p>This article is not available yet.</p>') + '</div><footer class="article-page-footer">' + (originalUrl ? '<a class="btn btn-primary" href="' + escapeText(originalUrl) + '" target="_blank" rel="noopener noreferrer">Open original on Substack</a>' : '<span class="article-origin-note">Published here first</span>') + '<a class="btn btn-outline" href="blog.html">Back to stories</a></footer>';
+        const donationMarkup = '<aside class="article-donation" aria-label="Support The Human Firewall"><strong>Was this useful?</strong><p>If this investigation helped you think more clearly about digital risk, you can support the independent work behind it.</p><a class="btn btn-primary" href="https://ko-fi.com/humanfirewall/donate" target="_blank" rel="noopener noreferrer">Support the Human Firewall</a></aside>';
+        shell.innerHTML = '<div class="article-page-top"><a class="back-link" href="blog.html">← Back to stories</a><span class="article-page-date">' + escapeText(article.date) + '</span></div><header class="article-page-header"><span class="section-eyebrow">HumanFirewall investigation</span><h1 class="article-page-title">' + escapeText(article.title) + '</h1><p class="article-page-subtitle">' + escapeText(article.subtitle || article.summary) + '</p>' + (hero ? '<img class="article-page-hero" src="' + escapeText(hero) + '" alt="' + escapeText(article.title) + '" width="' + escapeText(article.imageWidth || 1280) + '" height="' + escapeText(article.imageHeight || 720) + '">' : '') + '</header>' + tocMarkup + '<div class="article-page-body article-body">' + sanitizeArticleHtml(article.bodyHtml || '<p>This article is not available yet.</p>') + '</div>' + donationMarkup + '<footer class="article-page-footer"><a class="btn btn-outline" href="blog.html">Back to stories</a></footer>';
         document.title = '@HumanFirewallHQ // ' + article.title;
       })
       .catch(function () { renderError('Stories unavailable', 'The local article archive could not be loaded right now.'); });

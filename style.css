@@ -2790,10 +2790,13 @@ html.light .archive-card::before { border-color: rgba(15, 23, 42, 0.18); backgro
 .article-body code { padding: 0.1rem 0.3rem; border-radius: 5px; background: var(--bg-secondary); font-family: monospace; font-size: 0.9em; }
 .article-body blockquote { padding: 1rem 1.25rem; border-left: 3px solid var(--accent-amber); background: rgba(196, 125, 53, 0.1); color: var(--text-primary); }
 .article-figure { margin: 1.75rem 0 2rem; }
-.article-figure img { display: block; width: 100%; height: min(56.25vw, 560px); min-height: 220px; object-fit: contain; background: var(--bg-secondary); border: 1px solid var(--card-border); border-radius: var(--radius-md); }
+.article-figure img { display: block; width: auto; max-width: 100%; height: auto; max-height: 560px; margin: 0 auto; object-fit: contain; background: var(--bg-secondary); border: 1px solid var(--card-border); border-radius: var(--radius-md); }
 .article-figure figcaption { margin-top: 0.5rem; color: var(--text-muted); font-size: 0.8rem; }
-.article-page-footer { display: flex; flex-wrap: wrap; gap: 0.75rem; width: min(100%, 780px); margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--card-border); }
-@media (max-width: 760px) { .article-page-top { align-items: flex-start; flex-direction: column; } .article-page-title { font-size: clamp(2.25rem, 13vw, 4rem); } .article-page-footer { align-items: stretch; flex-direction: column; } .article-figure img { height: min(56.25vw, 360px); min-height: 180px; } }
+.article-donation { width: min(100%, 780px); margin: 3rem auto 0; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--card-border); border-left: 3px solid var(--accent-green); border-radius: var(--radius-md); background: var(--accent-green-dim); }
+.article-donation strong { display: block; color: var(--text-primary); font: 600 1.35rem/1.15 'Fraunces', Georgia, serif; }
+.article-donation p { max-width: 58ch; margin: 0.65rem 0 1rem; color: var(--text-secondary); line-height: 1.65; }
+.article-page-footer { display: flex; flex-wrap: wrap; gap: 0.75rem; width: min(100%, 780px); margin: 1.25rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--card-border); }
+@media (max-width: 760px) { .article-page-top { align-items: flex-start; flex-direction: column; } .article-page-title { font-size: clamp(2.25rem, 13vw, 4rem); } .article-page-footer { align-items: stretch; flex-direction: column; } .article-figure img { max-width: 100%; max-height: 420px; } }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-terminal,

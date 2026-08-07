@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 users.db
+.freebuff/
+*.db
+*.db-shm
+*.db-wal

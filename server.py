@@ -1,176 +1,186 @@
 #!/usr/bin/env python3
-"""
-@HUMANFIREWALLHQ // OPERATOR PLATFORM BACKEND SERVER (PYTHON 3 HTTP + SQLITE)
-SECURITY ARCHITECTURE: PBKDF2-HMAC-SHA256 PASSWORD HASHING | ZERO SQL INJECTION | STRICT HEADERS
+"""@HUMANFIREWALLHQ // local static preview server.
+
+The site is intentionally static: there are no accounts, passwords, cookies,
+API routes, or server-side user records to maintain.
 """
 
+import argparse
 import http.server
-import socketserver
-import json
-import sqlite3
-import hashlib
 import os
-import secrets
+import posixpath
+import socketserver
 import urllib.parse
 from http import HTTPStatus
 
 PORT = 8080
-DB_FILE = "users.db"
 WEB_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-def get_db():
-    conn = sqlite3.connect(DB_FILE)
-    conn.row_factory = sqlite3.Row
-    return conn
+# Keep the public surface explicit. This prevents accidental exposure of source,
+# local databases, editor metadata, and the Freebuff workspace.
+PUBLIC_FILES = {
+    "": "index.html",
+    "index.html": "index.html",
+    "about.html": "about.html",
+    "blog.html": "blog.html",
+    "article.html": "article.html",
+    "checklist.html": "checklist.html",
+    "products.html": "products.html",
+    "product-detail.html": "product-detail.html",
+    "script.js": "script.js",
+    "theme-bootstrap.js": "theme-bootstrap.js",
+    "masterclass-commerce.css": "masterclass-commerce.css",
+    "style.css": "style.css",
+    "favicon.svg": "favicon.svg",
+    "social-feed.json": "social-feed.json",
+    "articles.json": "articles.json",
+}
+PUBLIC_DIRECTORIES = {"images"}
+PUBLIC_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".svg", ".webp"}
+PUBLIC_ARTICLE_IMAGES = {
+    "01-phantom-squatting.jpg", "02-copilot-word-worm-timeline.png",
+    "03-deepseek-telegram-cve-table.png", "04-teams-ransomware-killchain.png",
+    "05-us-water-hack-timeline.png", "07-macsync-claude-guide-killchain.png",
+    "08-keyv-npm-worm-timeline.png", "08-keyv-npm-worm-hero.png",
+    "01-phantom-squatting-cover.jpg", "02-copilot-word-worm-cover.jpg",
+    "03-deepseek-telegram-cover.jpg", "04-teams-ransomware-cover.jpg",
+    "05-us-water-hack-cover.jpg", "07-macsync-cover.jpg",
+}
 
-def init_db():
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT UNIQUE NOT NULL,
-            salt TEXT NOT NULL,
-            password_hash TEXT NOT NULL,
-            user_type TEXT DEFAULT 'HUMAN',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-    conn.commit()
-    conn.close()
+CSP = (
+    "default-src 'self'; "
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+    "font-src 'self' https://fonts.gstatic.com; "
+    "img-src 'self' data: https://pbs.twimg.com; "
+    "script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; "
+    "form-action 'self' https://humanfirewallhq.substack.com https://ko-fi.com; "
+    "frame-ancestors 'none'; frame-src 'none'; worker-src 'none'; "
+    "upgrade-insecure-requests"
+)
 
-def hash_password(password: str, salt_hex: str = None):
-    if salt_hex is None:
-        salt = secrets.token_bytes(16)
-        salt_hex = salt.hex()
-    else:
-        salt = bytes.fromhex(salt_hex)
-    key = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
-    return salt_hex, key.hex()
 
-def verify_password(password: str, salt_hex: str, stored_hash: str):
-    _, computed_hash = hash_password(password, salt_hex)
-    return secrets.compare_digest(computed_hash, stored_hash)
+class StaticSiteHandler(http.server.SimpleHTTPRequestHandler):
+    """Serve only the site's intentional public assets."""
 
-class OperatorHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+    # Do not advertise the Python runtime in responses or error pages.
+    server_version = "HumanFirewall"
+    sys_version = ""
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=WEB_ROOT, **kwargs)
 
-    def send_security_headers(self):
+    def end_headers(self):
+        self.send_header("Content-Security-Policy", CSP)
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
-        self.send_header("X-Frame-Options", "SAMEORIGIN")
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
-
-    def do_OPTIONS(self):
-        self.send_response(HTTPStatus.NO_CONTENT)
-        self.send_security_headers()
-        self.end_headers()
-
-    def send_json_response(self, status_code, data):
-        payload = json.dumps(data).encode("utf-8")
-        self.send_response(status_code)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Content-Length", str(len(payload)))
-        self.send_security_headers()
-        self.end_headers()
-        self.wfile.write(payload)
-
-    def parse_json_body(self):
-        content_length = int(self.headers.get("Content-Length", 0))
-        if content_length == 0:
-            return {}
-        raw_body = self.rfile.read(content_length).decode("utf-8")
-        try:
-            return json.loads(raw_body)
-        except Exception:
-            return {}
-
-    def do_POST(self):
-        parsed_path = urllib.parse.urlparse(self.path).path
-
-        if parsed_path == "/api/register":
-            body = self.parse_json_body()
-            email = body.get("email", "").strip().lower()
-            password = body.get("password", "")
-            user_type = body.get("user_type", "HUMAN").upper()
-
-            if not email or "@" not in email or "." not in email:
-                return self.send_json_response(400, {"success": False, "error": "Invalid email address format."})
-            if len(password) < 8:
-                return self.send_json_response(400, {"success": False, "error": "Password must be at least 8 characters long."})
-
-            try:
-                salt_hex, pw_hash = hash_password(password)
-                conn = get_db()
-                cursor = conn.cursor()
-                cursor.execute(
-                    "INSERT INTO users (email, salt, password_hash, user_type) VALUES (?, ?, ?, ?)",
-                    (email, salt_hex, pw_hash, user_type)
-                )
-                conn.commit()
-                user_id = cursor.lastrowid
-                conn.close()
-
-                token = secrets.token_hex(24)
-                return self.send_json_response(201, {
-                    "success": True,
-                    "message": "Operator registration completed securely.",
-                    "user": {
-                        "id": user_id,
-                        "email": email,
-                        "user_type": user_type,
-                        "token": token
-                    }
-                })
-            except sqlite3.IntegrityError:
-                return self.send_json_response(409, {"success": False, "error": "Operator email is already registered."})
-            except Exception as e:
-                return self.send_json_response(500, {"success": False, "error": "Internal database error."})
-
-        elif parsed_path == "/api/login":
-            body = self.parse_json_body()
-            email = body.get("email", "").strip().lower()
-            password = body.get("password", "")
-
-            if not email or not password:
-                return self.send_json_response(400, {"success": False, "error": "Email and password are required."})
-
-            try:
-                conn = get_db()
-                cursor = conn.cursor()
-                cursor.execute("SELECT id, email, salt, password_hash, user_type FROM users WHERE email = ?", (email,))
-                row = cursor.fetchone()
-                conn.close()
-
-                if not row or not verify_password(password, row["salt"], row["password_hash"]):
-                    return self.send_json_response(401, {"success": False, "error": "Invalid email or password credentials."})
-
-                token = secrets.token_hex(24)
-                return self.send_json_response(200, {
-                    "success": True,
-                    "message": "Operator authentication successful.",
-                    "user": {
-                        "id": row["id"],
-                        "email": row["email"],
-                        "user_type": row["user_type"],
-                        "token": token
-                    }
-                })
-            except Exception as e:
-                return self.send_json_response(500, {"success": False, "error": "Internal authentication error."})
-
-        else:
-            return self.send_json_response(404, {"success": False, "error": "API endpoint not found."})
-
-    def end_headers(self):
-        self.send_security_headers()
+        self.send_header("X-Frame-Options", "DENY")
+        self.send_header("Cross-Origin-Opener-Policy", "same-origin")
+        self.send_header("Cross-Origin-Resource-Policy", "same-origin")
+        self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()")
         super().end_headers()
 
+    def _request_path(self):
+        return urllib.parse.urlparse(self.path).path
+
+    def _relative_path(self):
+        path = posixpath.normpath(urllib.parse.unquote(self._request_path())).lstrip("/")
+        return "" if path == "." else path
+
+    def _is_public(self, relative_path):
+        if relative_path in PUBLIC_FILES:
+            if not relative_path:
+                return True
+            expected = os.path.realpath(os.path.join(WEB_ROOT, PUBLIC_FILES[relative_path]))
+            requested = os.path.realpath(os.path.join(WEB_ROOT, relative_path))
+            return requested == expected and os.path.isfile(requested)
+
+        parts = relative_path.split("/")
+        if len(parts) < 2 or parts[0] not in PUBLIC_DIRECTORIES or not all(parts):
+            return False
+
+        # Resolve the asset before allowing it. This keeps a symlink inside the
+        # public images directory from exposing an arbitrary local file.
+        images_root = os.path.realpath(os.path.join(WEB_ROOT, parts[0]))
+        requested = os.path.realpath(os.path.join(WEB_ROOT, *parts))
+        try:
+            inside_images = os.path.commonpath((images_root, requested)) == images_root
+        except ValueError:
+            inside_images = False
+        if not inside_images or not os.path.isfile(requested):
+            return False
+        extension = os.path.splitext(requested)[1].lower()
+        if extension not in PUBLIC_IMAGE_EXTENSIONS:
+            return False
+        # Only the known site artwork and generated article artwork are public;
+        # do not turn future image-directory backups into downloadable assets.
+        relative = os.path.relpath(requested, WEB_ROOT).replace(os.sep, "/")
+        return (
+            relative in {"images/articles/" + name for name in PUBLIC_ARTICLE_IMAGES}
+            or relative in {
+                "images/blog-macsync.jpg", "images/blog-teams.jpg", "images/blog-water.jpg",
+                "images/product-ai-scam.jpg", "images/product-enterprise.jpg", "images/product-family.jpg",
+                "images/product-freelancer.jpg", "images/product-lite.jpg",    "images/product-recap.jpg", "images/products/masterclass-layer-1.svg", "images/products/masterclass-layer-2.svg",
+                "images/products/masterclass-layer-3.svg", "images/products/masterclass-bundle.svg",
+                "images/products/digital-self-defense-layer-1.png", "images/products/digital-self-defense-layer-2.png",
+                "images/articles/08-keyv-npm-worm-hero.png",
+                "images/products/digital-self-defense-layer-3.png", "images/products/digital-self-defense-bundle.png",
+                "images/products/ai-scam-defense.svg",
+                "images/products/freelancer-privacy-vault.svg", "images/products/family-digital-armor.svg", "images/products/monthly-recap-intel.svg",
+            }
+        )
+
+    def _serve_or_404(self):
+        relative_path = self._relative_path()
+        if not self._is_public(relative_path):
+            self.send_error(HTTPStatus.NOT_FOUND, "Not found")
+            return False
+        return True
+
+    def do_GET(self):
+        if self._serve_or_404():
+            super().do_GET()
+
+    def do_HEAD(self):
+        if self._serve_or_404():
+            super().do_HEAD()
+
+    def _method_not_allowed(self):
+        self.send_response(HTTPStatus.METHOD_NOT_ALLOWED)
+        self.send_header("Allow", "GET, HEAD")
+        self.end_headers()
+
+    def do_POST(self):
+        self._method_not_allowed()
+
+    def do_PUT(self):
+        self._method_not_allowed()
+
+    def do_DELETE(self):
+        self._method_not_allowed()
+
+    def do_OPTIONS(self):
+        self._method_not_allowed()
+
+    def do_TRACE(self):
+        self._method_not_allowed()
+
+    def list_directory(self, path):
+        self.send_error(HTTPStatus.NOT_FOUND, "Not found")
+        return None
+
+
+class ReusableTCPServer(socketserver.TCPServer):
+    allow_reuse_address = True
+
+
 if __name__ == "__main__":
-    init_db()
-    with socketserver.TCPServer(("0.0.0.0", PORT), OperatorHTTPRequestHandler) as httpd:
-        print(f"[*] @HumanFirewallHQ Secure Operator Server listening on 0.0.0.0:{PORT}")
+    parser = argparse.ArgumentParser(description="Run the HumanFirewall static preview server")
+    parser.add_argument("legacy_port", nargs="?", type=int, help=argparse.SUPPRESS)
+    parser.add_argument("--port", dest="flag_port", type=int, default=None, help="Local port (default: 8080)")
+    args = parser.parse_args()
+    requested_port = args.flag_port if args.flag_port is not None else (args.legacy_port or PORT)
+    if not 1024 <= requested_port <= 65535:
+        parser.error("port must be between 1024 and 65535")
+    with ReusableTCPServer(("127.0.0.1", requested_port), StaticSiteHandler) as httpd:
+        print(f"[*] @HumanFirewallHQ static preview server listening on 127.0.0.1:{requested_port}")
         httpd.serve_forever()
